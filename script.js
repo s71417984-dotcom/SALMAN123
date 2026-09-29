@@ -21,3 +21,20 @@ calcBtn.addEventListener('click', () => {
     // 3. Display the result on the page
     resultDiv.textContent = `You are ${ageInYears} years old!`;
 });
+
+
+
+const hamburger = document.querySelector('.hamburger-icon');
+const menu = document.getElementById('menu');
+
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+});
+
+menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector(link.dataset.target).scrollIntoView({ behavior: 'smooth' });
+        menu.classList.remove('open');
+    });
+});
